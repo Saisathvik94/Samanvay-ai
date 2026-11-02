@@ -5,18 +5,12 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   ArrowLeft,
-  Building2,
-  Calendar,
-  Clock,
   UserCheck,
   Share2,
   AlertTriangle,
-  FileText,
   FileCheck2,
   CheckCircle2,
   MessageSquare,
-  ShieldCheck,
-  Send,
   Download,
   GitCompare,
   ArrowRight,
@@ -27,7 +21,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 import { formatDate } from "@/lib/utils";
-import { ComplaintStatus, Bureau, Officer } from "@/types";
+import { ComplaintStatus, Bureau } from "@/types";
 import { MOCK_OFFICERS } from "@/data/mockData";
 
 export default function ComplaintDetailPage() {
@@ -38,7 +32,6 @@ export default function ComplaintDetailPage() {
   const {
     complaints,
     overlaps,
-    currentOfficer,
     updateComplaintStatus,
     assignComplaintOfficer,
     transferComplaint,
@@ -321,7 +314,7 @@ export default function ComplaintDetailPage() {
               </div>
             </CardHeader>
             <div className="space-y-4">
-              {complaint.actionHistory.map((item, idx) => (
+              {complaint.actionHistory.map((item) => (
                 <div key={item.id} className="relative flex items-start gap-3.5 text-xs">
                   {/* Timeline connector dot */}
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-600 ring-4 ring-blue-50 mt-1 shrink-0" />

@@ -1,16 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import {
-  BarChart3,
-  Download,
-  Filter,
-  Calendar,
-  Layers,
-  PieChart as PieIcon,
-  TrendingUp,
-  FileSpreadsheet,
-} from "lucide-react";
+import React, { useMemo } from "react";
+import { Download } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -23,20 +14,11 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  PieChart,
-  Pie,
-  Cell,
-  LineChart,
-  Line,
   CartesianGrid,
-  Legend,
 } from "recharts";
 
 export default function ReportsPage() {
   const { complaints, institutions, overlaps, coordinations } = useSamanvayStore();
-
-  const [selectedBureau, setSelectedBureau] = useState("ALL");
-  const [selectedCategory, setSelectedCategory] = useState("ALL");
 
   // Regional distribution computed from live complaints & institutions
   const regionalData = useMemo(() => {

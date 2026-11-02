@@ -4,19 +4,10 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
-  Users2,
-  Calendar,
-  Clock,
   CheckCircle2,
-  AlertTriangle,
-  Building2,
   FileText,
   MessageSquare,
   UserCheck,
-  Send,
-  Plus,
-  Share2,
-  ExternalLink,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
@@ -24,7 +15,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 import { formatDate, formatDateTime } from "@/lib/utils";
-import { CoordinationTask, Officer, Bureau } from "@/types";
+import { CoordinationTask } from "@/types";
 import { MOCK_OFFICERS } from "@/data/mockData";
 
 export default function CoordinationPage() {
@@ -359,7 +350,7 @@ export default function CoordinationPage() {
               </CardHeader>
 
               <div className="space-y-4">
-                {selectedTask.timeline.map((item, idx) => (
+                {selectedTask.timeline.map((item) => (
                   <div key={item.id} className="flex items-start gap-3.5 text-xs">
                     <div
                       className={`w-2.5 h-2.5 rounded-full ring-4 mt-1 shrink-0 ${
@@ -410,7 +401,16 @@ export default function CoordinationPage() {
             <label className="font-semibold text-neutral-800 block mb-1">Action Category</label>
             <select
               value={noteActionType}
-              onChange={(e) => setNoteActionType(e.target.value as any)}
+              onChange={(e) =>
+                setNoteActionType(
+                  e.target.value as
+                    | "NOTE"
+                    | "JOINT_NOTICE"
+                    | "HEARING_SCHEDULED"
+                    | "STATUS_UPDATE"
+                    | "ESCALATED"
+                )
+              }
               className="w-full p-2 border border-border rounded-md bg-white text-xs"
             >
               <option value="NOTE">Inter-Bureau Working Note</option>
@@ -520,7 +520,15 @@ export default function CoordinationPage() {
             <label className="font-semibold text-neutral-800 block mb-1">Status</label>
             <select
               value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value as any)}
+              onChange={(e) =>
+                setSelectedStatus(
+                  e.target.value as
+                    | "OPEN"
+                    | "IN_REVIEW"
+                    | "JOINT_ACTION_SCHEDULED"
+                    | "RESOLVED"
+                )
+              }
               className="w-full p-2 border border-border rounded-md bg-white text-xs"
             >
               <option value="IN_REVIEW">In Review (Active Joint Scrutiny)</option>

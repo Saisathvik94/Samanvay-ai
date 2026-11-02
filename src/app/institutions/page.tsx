@@ -1,18 +1,12 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Building2,
   Search,
   MapPin,
   FileText,
-  AlertTriangle,
-  ArrowRight,
-  ShieldCheck,
   Download,
-  Filter,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card } from "@/components/ui/Card";

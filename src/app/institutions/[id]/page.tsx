@@ -4,20 +4,8 @@ import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
-  Building2,
-  MapPin,
-  Calendar,
-  Users,
-  ShieldAlert,
   ArrowLeft,
-  FileText,
   GitCompare,
-  ExternalLink,
-  Layers,
-  AlertTriangle,
-  CheckCircle2,
-  History,
-  FileCheck2,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";

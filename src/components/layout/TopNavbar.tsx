@@ -11,7 +11,6 @@ import {
   FileText,
   UserCheck,
   RotateCcw,
-  Sparkles,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { MOCK_OFFICERS } from "@/data/mockData";

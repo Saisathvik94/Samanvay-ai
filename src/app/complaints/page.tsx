@@ -5,12 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Search,
-  Filter,
   Download,
   ArrowUpDown,
   FileText,
-  AlertTriangle,
-  Building2,
   ChevronLeft,
   ChevronRight,
   Eye,
@@ -22,7 +19,6 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { exportToCsv } from "@/lib/exportCsv";
 import { formatDate } from "@/lib/utils";
-import { Bureau, ComplaintStatus, Priority, SLACondition } from "@/types";
 
 export default function ComplaintsPage() {
   const router = useRouter();
@@ -70,15 +66,15 @@ export default function ComplaintsPage() {
 
   const sortedComplaints = useMemo(() => {
     return [...filteredComplaints].sort((a, b) => {
-      let valA: any = (a as any)[sortField];
-      let valB: any = (b as any)[sortField];
+      const valA = a[sortField as keyof typeof a];
+      const valB = b[sortField as keyof typeof b];
 
-      if (typeof valA === "string") {
+      if (typeof valA === "string" && typeof valB === "string") {
         return sortAsc
           ? valA.localeCompare(valB)
           : valB.localeCompare(valA);
       }
-      return sortAsc ? valA - valB : valB - valA;
+      return 0;
     });
   }, [filteredComplaints, sortField, sortAsc]);
 

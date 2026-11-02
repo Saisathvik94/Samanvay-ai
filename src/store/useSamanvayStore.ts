@@ -507,7 +507,7 @@ export const useSamanvayStore = create<SamanvayStore>()(
         return newCoordinationId;
       },
 
-      runSimulatedAnalysis: async (overlapId?: string) => {
+      runSimulatedAnalysis: async (_overlapId?: string) => {
         set({
           isAnalyzing: true,
           analysisMessage: "Step 1/5: Resolving AICTE Permanent Institution Identity...",

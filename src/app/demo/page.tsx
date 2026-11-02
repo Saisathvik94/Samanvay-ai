@@ -2,22 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
-  PlayCircle,
   ArrowRight,
-  ArrowLeft,
   RotateCcw,
   Sparkles,
-  GitCompare,
   CheckCircle2,
   Users2,
-  Building2,
-  FileText,
-  ShieldCheck,
   LayoutDashboard,
-  AlertTriangle,
-  Layers,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
@@ -25,11 +16,9 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 export default function DemoWalkthroughPage() {
-  const router = useRouter();
   const {
     overlaps,
     complaints,
-    coordinations,
     currentOfficer,
     isAnalyzing,
     runSimulatedAnalysis,
@@ -39,7 +28,6 @@ export default function DemoWalkthroughPage() {
   } = useSamanvayStore();
 
   const [currentStep, setCurrentStep] = useState(1);
-  const [demoSelectedOverlapId, setDemoSelectedOverlapId] = useState("OVL-2026-001");
   const [demoNotes, setDemoNotes] = useState(
     "Verified duplicate allegation: Extortion of ₹45,000 corporate training charge and withholding class 12 marksheets at Apex Institute."
   );

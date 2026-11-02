@@ -7,13 +7,7 @@ import {
   AlertTriangle,
   CheckCircle2,
   AlertOctagon,
-  TrendingDown,
-  Building2,
-  FileText,
   Download,
-  Filter,
-  ArrowRight,
-  ShieldAlert,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
@@ -34,7 +28,7 @@ import {
 } from "recharts";
 
 export default function SlaMonitoringPage() {
-  const { complaints, currentOfficer, escalateComplaint } = useSamanvayStore();
+  const { complaints, escalateComplaint } = useSamanvayStore();
 
   const [selectedBureau, setSelectedBureau] = useState("ALL");
   const [selectedCondition, setSelectedCondition] = useState<string>("ALL");

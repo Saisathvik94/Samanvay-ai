@@ -4,22 +4,15 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
-  GitCompare,
   Sparkles,
-  AlertTriangle,
   CheckCircle2,
   XCircle,
   Building2,
   FileText,
-  UserCheck,
   ShieldAlert,
-  ArrowRight,
-  ExternalLink,
-  ChevronRight,
+  GitCompare,
   Layers,
-  HelpCircle,
   RefreshCw,
-  Info,
 } from "lucide-react";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
@@ -27,7 +20,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 import { formatDate } from "@/lib/utils";
-import { OverlapGroup, Complaint, Officer, ReviewStatus } from "@/types";
+import { OverlapGroup, Complaint } from "@/types";
 import { MOCK_OFFICERS } from "@/data/mockData";
 
 export default function IntelligencePage() {
@@ -60,7 +53,7 @@ export default function IntelligencePage() {
   // Dialog states for officer decisions
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
   const [confirmNotes, setConfirmNotes] = useState("");
-  const [assignOwnerName, setAssignOwnerName] = useState(currentOfficer.name);
+  const assignOwnerName = currentOfficer.name;
 
   const [unrelatedModalOpen, setUnrelatedModalOpen] = useState(false);
   const [unrelatedNotes, setUnrelatedNotes] = useState("");

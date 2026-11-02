@@ -12,8 +12,6 @@ import {
   TrendingUp,
   ArrowRight,
   ShieldAlert,
-  Building2,
-  Calendar,
   Layers,
   Sparkles,
 } from "lucide-react";

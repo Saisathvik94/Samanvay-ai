@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import {
-  Settings,
   RotateCcw,
   UserCheck,
   Server,
   Database,
   Layers,
-  ShieldCheck,
   CheckCircle2,
   Cpu,
 } from "lucide-react";
