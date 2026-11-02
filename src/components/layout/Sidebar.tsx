@@ -21,6 +21,20 @@ import {
 import { cn } from "@/lib/utils";
 import { useSamanvayStore } from "@/store/useSamanvayStore";
 
+interface NavItem {
+  name: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badge?: number;
+  badgeVariant?: "warning" | "blue";
+  highlight?: boolean;
+}
+
+interface NavGroup {
+  group: string;
+  items: NavItem[];
+}
+
 export const Sidebar: React.FC = () => {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
@@ -34,7 +48,7 @@ export const Sidebar: React.FC = () => {
     (c) => c.status !== "RESOLVED"
   ).length;
 
-  const navGroups = [
+  const navGroups: NavGroup[] = [
     {
       group: "Operations",
       items: [
