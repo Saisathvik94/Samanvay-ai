@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -18,7 +18,7 @@ import { formatDate, formatDateTime } from "@/lib/utils";
 import { CoordinationTask } from "@/types";
 import { MOCK_OFFICERS } from "@/data/mockData";
 
-export default function CoordinationPage() {
+function CoordinationHubWorkspace() {
   const searchParams = useSearchParams();
   const initialCoordId = searchParams.get("id");
 
@@ -569,5 +569,19 @@ export default function CoordinationPage() {
         </div>
       </Modal>
     </div>
+  );
+}
+
+export default function CoordinationPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="py-12 text-center text-xs text-slate-500">
+          Loading Coordination Hub...
+        </div>
+      }
+    >
+      <CoordinationHubWorkspace />
+    </Suspense>
   );
 }

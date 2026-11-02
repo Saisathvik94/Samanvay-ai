@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -23,7 +23,7 @@ import { formatDate } from "@/lib/utils";
 import { OverlapGroup, Complaint } from "@/types";
 import { MOCK_OFFICERS } from "@/data/mockData";
 
-export default function IntelligencePage() {
+function IntelligenceWorkspace() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialGroupId = searchParams.get("group") || searchParams.get("inst");
@@ -764,5 +764,19 @@ export default function IntelligencePage() {
         </div>
       </Modal>
     </div>
+  );
+}
+
+export default function IntelligencePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="py-12 text-center text-xs text-slate-500">
+          Loading AI Overlap Workspace...
+        </div>
+      }
+    >
+      <IntelligenceWorkspace />
+    </Suspense>
   );
 }
